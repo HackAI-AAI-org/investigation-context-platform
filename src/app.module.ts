@@ -4,7 +4,7 @@ import { PizzazModule } from './modules/pizzaz/pizzaz.module.js';
 import { InvestigationModule } from './modules/investigation/investigation.module.js';
 import { EvidenceModule } from './modules/evidence/evidence.module.js';
 import { EntityModule } from './modules/entities/entities.module.js';
-import { RelationshipModule } from './modules/relationship/relationship.module.js';
+import { RelationshipModule } from './modules/relationship/relationships.module.js';
 import { NotesModule } from './modules/notes/notes.module.js';
 import { TasksModule } from './modules/tasks/tasks.module.js';
 import { SearchModule } from './modules/search/search.module.js';
