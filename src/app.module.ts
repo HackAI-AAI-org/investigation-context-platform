@@ -33,7 +33,7 @@ import { ReportsModule } from './modules/reports/reports.module.js';
 
         InvestigationModule,
         EvidenceModule,
-        EntitiesModule,
+        EntityModule,
         RelationshipModule,
         NotesModule,
         TasksModule,
