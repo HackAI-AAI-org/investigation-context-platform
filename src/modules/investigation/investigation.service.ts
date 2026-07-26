@@ -3,10 +3,16 @@ import { Injectable } from "@nitrostack/core";
 import {
     Evidence,
     Investigation,
-    INVESTIGATIONS,
     Note,
     TimelineEvent,
 } from "./investigation.data.js";
+
+import {
+    loadInvestigations,
+    saveInvestigations,
+} from "../../database/json-storage.js";
+
+let INVESTIGATIONS = loadInvestigations();
 
 @Injectable()
 export class InvestigationService {
@@ -71,6 +77,8 @@ export class InvestigationService {
             event: `Assigned to ${analyst}.`,
         });
 
+        saveInvestigations(INVESTIGATIONS);
+
         return investigation;
     }
 
@@ -91,6 +99,8 @@ export class InvestigationService {
             timestamp: new Date().toISOString(),
             event: `Status updated to "${status}".`,
         });
+
+        saveInvestigations(INVESTIGATIONS);
 
         return investigation;
     }
@@ -122,6 +132,8 @@ export class InvestigationService {
             event: `${author} added an investigation note.`,
         });
 
+        saveInvestigations(INVESTIGATIONS);
+
         return note;
     }
 
@@ -149,6 +161,8 @@ export class InvestigationService {
             event: `Evidence "${newEvidence.name}" attached.`,
         });
 
+        saveInvestigations(INVESTIGATIONS);
+
         return newEvidence;
     }
 
@@ -171,6 +185,8 @@ export class InvestigationService {
 
         investigation.timeline.push(timelineEvent);
 
+        saveInvestigations(INVESTIGATIONS);
+
         return timelineEvent;
     }
 
@@ -183,6 +199,8 @@ export class InvestigationService {
         };
 
         INVESTIGATIONS.push(newInvestigation);
+
+        saveInvestigations(INVESTIGATIONS);
 
         return newInvestigation;
     }
