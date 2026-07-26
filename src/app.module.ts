@@ -1,7 +1,5 @@
 import { McpApp, Module, ConfigModule } from '@nitrostack/core';
 
-import { PizzazModule } from './modules/pizzaz/pizzaz.module.js';
-
 import { InvestigationModule } from './modules/investigation/investigation.module.js';
 import { EvidenceModule } from './modules/evidence/evidence.module.js';
 import { EntityModule } from './modules/entities/entities.module.js';
@@ -15,7 +13,7 @@ import { ReportsModule } from './modules/reports/reports.module.js';
 @McpApp({
     module: AppModule,
     server: {
-        name: 'pizzaz-finder',
+        name: 'investigation-context-platform',
         version: '1.0.0'
     },
     logging: {
@@ -23,14 +21,11 @@ import { ReportsModule } from './modules/reports/reports.module.js';
     }
 })
 @Module({
-    name: 'pizzaz',
+    name: 'investigation-context',
     description: 'Persistent Investigation Context Platform',
 
     imports: [
         ConfigModule.forRoot(),
-
-        // Original NitroStack template
-        PizzazModule,
 
         // Investigation platform modules
         InvestigationModule,

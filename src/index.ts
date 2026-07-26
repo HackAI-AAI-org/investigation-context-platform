@@ -25,6 +25,5 @@ async function bootstrap() {
 
 // Start the application
 bootstrap().catch((error) => {
-    console.error('❌ Failed to start server:', error);
     process.exit(1);
 });
